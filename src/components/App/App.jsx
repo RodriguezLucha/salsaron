@@ -3,42 +3,61 @@ import firebase from 'firebase';
 
 import styles from './App.module.scss';
 class App extends React.Component {
-  state = { loggedIn: null };
+  state = {loggedIn: null, email: '', password: ''};
 
-  componentWillMount() {
+  componentDidMount() {
     firebase.initializeApp({
-      apiKey: "AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc",
-      authDomain: "salsaron-3a7af.firebaseapp.com",
-      databaseURL: "https://salsaron-3a7af.firebaseio.com",
-      projectId: "salsaron-3a7af",
-      storageBucket: "",
-      messagingSenderId: "534251724064",
-      appId: "1:534251724064:web:4864c4a8ae3b4d49"
+      apiKey: 'AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc',
+      authDomain: 'salsaron-3a7af.firebaseapp.com',
+      databaseURL: 'https://salsaron-3a7af.firebaseio.com',
+      projectId: 'salsaron-3a7af',
+      storageBucket: '',
+      messagingSenderId: '534251724064',
+      appId: '1:534251724064:web:4864c4a8ae3b4d49'
     });
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ loggedIn: true });
+        this.setState({loggedIn: true});
       } else {
-        this.setState({ loggedIn: false });
+        this.setState({loggedIn: false});
       }
     });
   }
   renderContent() {
     switch (this.state.loggedIn) {
-      case true:
-        return (
-          <button onPress={() => firebase.auth().signOut()}>
+    case true:
+      return (
+        <button onClick={() => firebase.auth().signOut()}>
             Log Out
-          </button>
-        );
-      case false:
-        return <button>Login</button>;
-      default:
-        return <div>Loading</div>;
+        </button>
+      );
+    case false:
+      return (
+        <div>
+          <input
+            onChange={(e) => this.setState({email: e.currentTarget.value})}
+            type="text"
+            value={this.state.email}/>
+          <input
+            onChange={(e) => this.setState({password: e.currentTarget.value})}
+            type="text"
+            value={this.state.password}/>
+          <button onClick={() => this.signup()}>Sign Up</button>
+          <button onClick={() => this.login()}>Log In</button>
+        </div>
+      );
+    default:
+      return <div>Loading</div>;
     }
   }
 
+  login(){
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+  }
+  signup(){
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
+  }
 
   render(){
     return (
@@ -46,7 +65,7 @@ class App extends React.Component {
         <h1 className={styles.title}>Salsaron</h1>
         {this.renderContent()}
       </div>
-    ); 
+    );
   }
 }
 
