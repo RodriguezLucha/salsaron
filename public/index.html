@@ -8,11 +8,26 @@
   <meta name="theme-color" content="#000000" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-  <title>React App</title>
+  <title>Salsaron</title>
+  <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc",
+      authDomain: "salsaron-3a7af.firebaseapp.com",
+      databaseURL: "https://salsaron-3a7af.firebaseio.com",
+      projectId: "salsaron-3a7af",
+      storageBucket: "",
+      messagingSenderId: "534251724064",
+      appId: "1:534251724064:web:4864c4a8ae3b4d49"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <div id="root"></div>
 </body>
 
