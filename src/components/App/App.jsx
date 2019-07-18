@@ -37,14 +37,18 @@ class App extends React.Component {
     case false:
       return (
         <div>
-          <input
-            onChange={(e) => this.setState({email: e.currentTarget.value})}
-            type="text"
-            value={this.state.email}/>
-          <input
-            onChange={(e) => this.setState({password: e.currentTarget.value})}
-            type="text"
-            value={this.state.password}/>
+          <label>Email
+            <input
+              onChange={(e) => this.setState({email: e.currentTarget.value})}
+              type="text"
+              value={this.state.email}/>
+          </label>
+          <label>Password
+            <input
+              onChange={(e) => this.setState({password: e.currentTarget.value})}
+              type="text"
+              value={this.state.password}/>
+          </label>
           <button onClick={() => this.signup()}>Sign Up</button>
           <button onClick={() => this.login()}>Log In</button>
         </div>
@@ -55,8 +59,16 @@ class App extends React.Component {
   }
 
   login(){
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+    let email = this.state.email;
+    let password = this.state.password;
+
+    let state = this.state;
+    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+      console.log(`Error code : ${error} Email: ${email} Password: ${password} state: ${state}`);
+    });
+    console.log('Success.');
   }
+
   signup(){
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
   }

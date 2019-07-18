@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {wait} from '@testing-library/dom';
@@ -15,8 +15,17 @@ it('Has Salsaron title', () => {
 });
 
 it('Can perform a login', async() => {
-  const {getByText} = render(<App />);
-  await wait(() => {
-    const LoginButton = getByText('Log In');
+  const {getByText, getByLabelText, debug} = render(<App />);
+  await wait(async () => {
+    debug();
+    fireEvent.change(getByLabelText(/Email/i), { target: { value: 'rudy@gmail.com' } })
+    fireEvent.change(getByLabelText(/Password/i), { target: { value: 'password' } })
+
+    const loginButton = getByText('Log In');
+    loginButton.click();
+    await wait( () => {
+      const logoutButton = getByText('Log Out');
+    });
+    //const logoutButton = getByText('Log Out');
   });
 });
