@@ -17,15 +17,11 @@ it('Has Salsaron title', () => {
 it('Can perform a login', async() => {
   const {getByText, getByLabelText, debug} = render(<App />);
   await wait(async () => {
-    debug();
     fireEvent.change(getByLabelText(/Email/i), { target: { value: 'rudy@gmail.com' } })
     fireEvent.change(getByLabelText(/Password/i), { target: { value: 'password' } })
 
     const loginButton = getByText('Log In');
     loginButton.click();
-    await wait( () => {
-      const logoutButton = getByText('Log Out');
-    });
-    //const logoutButton = getByText('Log Out');
+    await findByText('Log Out')
   });
 });

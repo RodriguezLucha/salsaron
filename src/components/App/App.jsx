@@ -6,25 +6,25 @@ class App extends React.Component {
   state = {loggedIn: null, email: '', password: ''};
 
   componentDidMount() {
-    if (!firebase.apps.length) {
-      firebase.initializeApp({
-        apiKey: 'AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc',
-        authDomain: 'salsaron-3a7af.firebaseapp.com',
-        databaseURL: 'https://salsaron-3a7af.firebaseio.com',
-        projectId: 'salsaron-3a7af',
-        storageBucket: '',
-        messagingSenderId: '534251724064',
-        appId: '1:534251724064:web:4864c4a8ae3b4d49'
-      });
-    }
+    // if (!firebase.apps.length) {
+    //   firebase.initializeApp({
+    //     apiKey: 'AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc',
+    //     authDomain: 'salsaron-3a7af.firebaseapp.com',
+    //     databaseURL: 'https://salsaron-3a7af.firebaseio.com',
+    //     projectId: 'salsaron-3a7af',
+    //     storageBucket: '',
+    //     messagingSenderId: '534251724064',
+    //     appId: '1:534251724064:web:4864c4a8ae3b4d49'
+    //   });
+    // }
 
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({loggedIn: true});
-      } else {
-        this.setState({loggedIn: false});
-      }
-    });
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.setState({loggedIn: true});
+    //   } else {
+    //     this.setState({loggedIn: false});
+    //   }
+    // });
   }
   renderContent() {
     switch (this.state.loggedIn) {
@@ -64,9 +64,8 @@ class App extends React.Component {
 
     let state = this.state;
     firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      console.log(`Error code : ${error} Email: ${email} Password: ${password} state: ${state}`);
+      console.log(`${error} Email: ${email} Password: ${password} state: ${state}`);
     });
-    console.log('Success.');
   }
 
   signup(){
