@@ -3,14 +3,11 @@ import styles from './App.module.scss';
 import axios from 'axios';
 class App extends React.Component {
   state = {loggedIn: false, email: '', password: ''};
-
-  componentDidMount() {
-  }
   renderContent() {
     switch (this.state.loggedIn) {
     case true:
       return (
-        <button onClick={() => this.signout()}>
+        <button onClick={() => this.logout()}>
             Log Out
         </button>
       );
@@ -29,8 +26,7 @@ class App extends React.Component {
               type="text"
               value={this.state.password}/>
           </label>
-          <button onClick={() => this.signup()}>Sign Up</button>
-          <button onClick={() => this.login()}>Log In</button>
+          <button onClick={() => this.login()}>Login</button>
         </div>
       );
     default:
@@ -41,17 +37,23 @@ class App extends React.Component {
   login(){
     let email = this.state.email;
     let password = this.state.password;
+
     axios.post('/api/users/login', {
       email,
       password
+    }).then(result => {
+      this.setState({loggedIn: true});
+      console.log('success');
+    }).catch(err => {
+      console.log('there was an error', err.message);
+      // console.log(err);
     });
   }
 
-  signout(){
+  logout(){
+    this.setState({loggedIn: false});
   }
 
-  signup(){
-  }
 
   render(){
     return (
