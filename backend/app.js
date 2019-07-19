@@ -1,12 +1,18 @@
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-let app = express();
+const app = express();
+const db = require('./config/keys').mongoURI;
+mongoose
+  .connect(db, {useNewUrlParser: true})
+  .then(() => console.log('Connected to MongoDB successfully'))
+  .catch(err => console.log(err));
 
 app.use(logger('dev'));
 app.use(express.json());
