@@ -2,14 +2,18 @@ import React from 'react';
 import styles from './App.module.scss';
 import axios from 'axios';
 class App extends React.Component {
-  state = {loggedIn: false, email: '', password: ''};
+  constructor(props){
+    super(props);
+    this.state = {loggedIn: false, email: '', password: ''};
+    this.renderContent = this.renderContent.bind(this);
+  }
   renderContent() {
     switch (this.state.loggedIn) {
     case true:
       return (
-        <button onClick={() => this.logout()}>
-            Log Out
-        </button>
+        <div>
+          <button onClick={() => this.logout()}>Logout</button>
+        </div>
       );
     case false:
       return (
@@ -43,10 +47,8 @@ class App extends React.Component {
       password
     }).then(result => {
       this.setState({loggedIn: true});
-      console.log('success');
     }).catch(err => {
       console.log('there was an error', err.message);
-      // console.log(err);
     });
   }
 
