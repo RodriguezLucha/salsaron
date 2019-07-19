@@ -1,36 +1,16 @@
 import React from 'react';
-import firebase from 'firebase';
-
 import styles from './App.module.scss';
+import axios from 'axios';
 class App extends React.Component {
-  state = {loggedIn: null, email: '', password: ''};
+  state = {loggedIn: false, email: '', password: ''};
 
   componentDidMount() {
-    // if (!firebase.apps.length) {
-    //   firebase.initializeApp({
-    //     apiKey: 'AIzaSyAseAypKaKt5uy_Vgu1EJBiZSn5TqAKpDc',
-    //     authDomain: 'salsaron-3a7af.firebaseapp.com',
-    //     databaseURL: 'https://salsaron-3a7af.firebaseio.com',
-    //     projectId: 'salsaron-3a7af',
-    //     storageBucket: '',
-    //     messagingSenderId: '534251724064',
-    //     appId: '1:534251724064:web:4864c4a8ae3b4d49'
-    //   });
-    // }
-
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({loggedIn: true});
-    //   } else {
-    //     this.setState({loggedIn: false});
-    //   }
-    // });
   }
   renderContent() {
     switch (this.state.loggedIn) {
     case true:
       return (
-        <button onClick={() => firebase.auth().signOut()}>
+        <button onClick={() => this.signout()}>
             Log Out
         </button>
       );
@@ -61,15 +41,16 @@ class App extends React.Component {
   login(){
     let email = this.state.email;
     let password = this.state.password;
-
-    let state = this.state;
-    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      console.log(`${error} Email: ${email} Password: ${password} state: ${state}`);
+    axios.post('/api/users/login', {
+      email,
+      password
     });
   }
 
+  signout(){
+  }
+
   signup(){
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
   }
 
   render(){
