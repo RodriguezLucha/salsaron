@@ -12,5 +12,11 @@ module.exports = {
       .url(browser.globals.url)
       .waitForElementVisible('body')
       .assert.containsText(css('loginLink'), 'Log In');
+  },
+  'Sign Up link exists' : function (browser) {
+    browser
+      .url(browser.globals.url)
+      .waitForElementVisible('body')
+      .assert.containsText(css('signUpLink'), 'Sign Up');
   }
 };

@@ -10,6 +10,9 @@ class Home extends React.Component {
         <Link
           className={styles.loginLink}
           to="/login">Log In</Link>
+        <Link
+          className={styles.signUpLink}
+          to="/signup">Sign Up</Link>
       </div>
     );
   }
