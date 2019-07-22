@@ -7,16 +7,14 @@ const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
 const mock = new MockAdapter(axios);
 
-describe('App home page', () => {
-
-  let getByText = null;
-
-  beforeEach(() => {
-    let rendered = render(<App />);
-    getByText = rendered.getByText;
+describe('App Home Page', () => {
+  it('Renders without crashing', () => {
+    render(<App />);
   });
 
   it('Has Salsaron title', () => {
+    let {getByText} = render(<App />);
     expect(getByText('Salsaron')).toBeInTheDocument();
   });
+  
 });

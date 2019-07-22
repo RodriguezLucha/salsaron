@@ -1,11 +1,17 @@
 import React from 'react';
-import styles from './App.module.scss';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from '../Home/Home';
+
 class App extends React.Component {
   render(){
     return (
-      <div className={styles.container}>
-        <h1 className={styles.title}>Salsaron</h1>
-      </div>
+      <Router>
+        <Route
+          component={Home}
+          exact
+          path='/'/>
+      </Router>
+
     );
   }
 }
