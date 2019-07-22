@@ -7,7 +7,9 @@ class Home extends React.Component {
     return (
       <div className={styles.container}>
         <h1 className={styles.websiteTitle}>Salsaron</h1>
-        <Link to="/login">Log In</Link>
+        <Link
+          className={styles.loginLink}
+          to="/login">Log In</Link>
       </div>
     );
   }
