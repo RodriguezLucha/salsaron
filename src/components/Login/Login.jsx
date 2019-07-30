@@ -12,7 +12,9 @@ class Login extends React.Component {
         <label>Password
           <input type="password"/>
         </label>
-        <Link className={styles.loginButton} to="/">Login</Link>
+        <Link
+          className={styles.loginButton}
+          to="/">Log In</Link>
       </div>
     );
   }
