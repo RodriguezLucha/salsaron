@@ -1,23 +1,31 @@
 import React from 'react';
+import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import styles from './Login.module.scss';
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   render() {
     return (
-      <div>
-        <label>Username
-          <input type="text"/>
-        </label>
-        <label>Password
-          <input type="password"/>
-        </label>
-        <Link
-          className={styles.loginButton}
-          to="/">Log In</Link>
-      </div>
+      <Form>
+        <FormGroup>
+          <Label for="exampleEmail">Username</Label>
+          <Input
+            id="exampleEmail"
+            name="email"
+            placeholder="with a placeholder"
+            type="email" />
+        </FormGroup>
+        <FormGroup>
+          <Label for="examplePassword">Password</Label>
+          <Input
+            id="examplePassword"
+            name="password"
+            placeholder="password placeholder"
+            type="password" />
+        </FormGroup>
+        <Link to="/">
+          <Button>Submit</Button>
+        </Link>
+      </Form>
     );
   }
 }
-
-export default Login;
