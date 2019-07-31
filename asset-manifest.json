@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/salsaron/static/css/main.cb0cfcea.chunk.css",
-    "main.js": "/salsaron/static/js/main.d5a5e72d.chunk.js",
-    "main.js.map": "/salsaron/static/js/main.d5a5e72d.chunk.js.map",
+    "main.css": "/salsaron/static/css/main.a580d470.chunk.css",
+    "main.js": "/salsaron/static/js/main.0a31a9f6.chunk.js",
+    "main.js.map": "/salsaron/static/js/main.0a31a9f6.chunk.js.map",
     "runtime~main.js": "/salsaron/static/js/runtime~main.033d4d2c.js",
     "runtime~main.js.map": "/salsaron/static/js/runtime~main.033d4d2c.js.map",
-    "static/js/2.2fbc62c7.chunk.js": "/salsaron/static/js/2.2fbc62c7.chunk.js",
-    "static/js/2.2fbc62c7.chunk.js.map": "/salsaron/static/js/2.2fbc62c7.chunk.js.map",
+    "static/js/2.61c8a527.chunk.js": "/salsaron/static/js/2.61c8a527.chunk.js",
+    "static/js/2.61c8a527.chunk.js.map": "/salsaron/static/js/2.61c8a527.chunk.js.map",
     "index.html": "/salsaron/index.html",
-    "precache-manifest.d1b160e00281e3f7c677c88fdac09bf2.js": "/salsaron/precache-manifest.d1b160e00281e3f7c677c88fdac09bf2.js",
+    "precache-manifest.bdf4f11b31d2ca3295c11394dd4b8052.js": "/salsaron/precache-manifest.bdf4f11b31d2ca3295c11394dd4b8052.js",
     "service-worker.js": "/salsaron/service-worker.js",
-    "static/css/main.cb0cfcea.chunk.css.map": "/salsaron/static/css/main.cb0cfcea.chunk.css.map"
+    "static/css/main.a580d470.chunk.css.map": "/salsaron/static/css/main.a580d470.chunk.css.map",
+    "static/media/Home.module.scss": "/salsaron/static/media/dancers.29b3fc43.jpg"
   }
 }
