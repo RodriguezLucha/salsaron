@@ -34,7 +34,9 @@ export default class Example extends React.Component {
           color="light"
           expand="md"
           light>
-          <NavbarBrand href="/">
+          <NavbarBrand
+            tag={Link}
+            to="/">
             <FontAwesomeIcon icon={faShoePrints} />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
