@@ -1,4 +1,8 @@
 import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faShoePrints} from '@fortawesome/free-solid-svg-icons';
+import {Link} from 'react-router-dom';
+
 import {
   Collapse,
   Navbar,
@@ -7,6 +11,7 @@ import {
   Nav,
   NavItem,
   NavLink} from 'reactstrap';
+
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -29,7 +34,9 @@ export default class Example extends React.Component {
           color="light"
           expand="md"
           light>
-          <NavbarBrand href="/">Salsaron</NavbarBrand>
+          <NavbarBrand href="/">
+            <FontAwesomeIcon icon={faShoePrints} />
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse
             isOpen={this.state.isOpen}
@@ -38,10 +45,14 @@ export default class Example extends React.Component {
               className="ml-auto"
               navbar>
               <NavItem>
-                <NavLink href="#/login">Log In</NavLink>
+                <NavLink
+                  tag={Link}
+                  to="/login">Log In</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#/signup">Sign Up</NavLink>
+                <NavLink
+                  tag={Link}
+                  to="/signup">Sign Up</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

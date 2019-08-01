@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 export default class Login extends React.Component {
@@ -23,7 +23,7 @@ export default class Login extends React.Component {
             type="password" />
         </FormGroup>
         <Link to="/">
-          <Button>Submit</Button>
+          <Button>Log In</Button>
         </Link>
       </Form>
     );
