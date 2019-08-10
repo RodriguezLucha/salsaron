@@ -31,15 +31,21 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar
-          color="light"
+          color="secondary"
           expand="md"
+          id="mainNav"
           light>
           <NavbarBrand
             tag={Link}
             to="/">
             <FontAwesomeIcon icon={faShoePrints} />
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler
+            className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded collapsed"
+            color="light"
+            onClick={this.toggle} >Menu
+            <i className="fas fa-bars"></i>
+          </NavbarToggler>
           <Collapse
             isOpen={this.state.isOpen}
             navbar>
