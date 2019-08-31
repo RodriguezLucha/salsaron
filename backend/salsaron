@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+
+post '/api/users' => sub {
+    my $c        = shift;
+    my $user     = $c->param('username');
+    my $password = $c->param('password');
+    $c->render( text => "Hello $user, your password is $password." );
+};
+
+app->start;
