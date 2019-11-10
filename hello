@@ -2,17 +2,17 @@
 use Mojolicious::Lite;
 
 get '/' => sub {
-  my $self = shift;
-  $self->render('index');
+  my $c = shift;
+  $c->render(template => 'index');
 };
 
 app->start;
 __DATA__
-
+k
 @@ index.html.ep
 % layout 'default';
 % title 'Welcome';
-Welcome to the Mojolicious real-time web framework!
+<h1>Welcome to the Mojolicious real-time web framework!</h1>
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>

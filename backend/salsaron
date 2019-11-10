@@ -9,3 +9,4 @@ post '/api/users' => sub {
 };
 
 app->start;
+
