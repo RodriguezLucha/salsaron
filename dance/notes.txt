@@ -1,0 +1,1 @@
+https://firebase.google.com/docs/web/setup?authuser=0#using-module-bundlers
